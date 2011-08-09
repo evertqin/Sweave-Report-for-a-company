@@ -1,0 +1,684 @@
+% 
+\documentclass[11pt]{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{Sweave}
+%\usepackage{fullpage}
+%%% PAGE DIMENSIONS
+%\usepackage{geometry} % to change the page dimensions
+\usepackage[margin=1in, letterpaper]{geometry}
+%\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+\usepackage{graphicx}
+\usepackage{subfig} %put figures side by side
+\usepackage{sidecap}
+\usepackage{ragged2e}
+\usepackage{times}
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{wasysym}% provides \ocircle and \Box
+\usepackage{hyperref}
+\usepackage{url}
+
+
+\pagestyle{fancy} 
+\lhead{In response to the interview questions by \textsc{Some Company} Inc.}\chead{}\rhead{}
+%\renewcommand{\labelenumi}{(\alph{enumi})} % change the symbol of enumeration
+%\renewcommand{\thesection}{\Roman{section}}
+ \setlength{\parskip}{6pt plus6pt minus2pt}
+
+
+
+\title{In response to the interview questions by \textsc{Some Company} Inc.}
+\author{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%					setup some command and enviornments							%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% this makes list spacing much better.
+%
+\newenvironment{my_enumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}{\end{enumerate}
+}
+
+\newcommand{\Qitem}[1]{\hskip 0.4cm $\Box$ #1} % define item with a square checkbox
+\newcommand{\Qrate}{$\Box$-$\Box$-$\Box$-$\Box$-$\Box$-$\Box$-$\Box$}
+
+%%% Define a new 'leo' style for the package that will use a smaller font.
+%\makeatletter
+%\def\url@leostyle{%
+%  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+%\makeatother
+%%% Now actually use the newly defined style.
+%\urlstyle{leo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%					Begin Latex Documnet										%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+<<echo = FALSE>>=
+setwd('F:\\My Dropbox\\Personal\\Job Hunting\\Report\\tinyco\\Question2')
+@
+\tableofcontents
+
+\section{Introduction}
+% \begin{figure}[h]
+% \centering
+% 	\subfloat{\label{fig:gull}\includegraphics[width = 0.45\textwidth]{snapshots/snap3}} 
+% 	\subfloat{\label{fig:gull}\includegraphics[width = 0.45\textwidth]{snapshots/snap4}} 
+%	\caption{A snapshot of what I get so far.}
+%  \label{fig:snap}
+% \end{figure}
+
+This document is dedicated to analysis \textsc{Some Product} in terms of three R metrics:
+\begin{enumerate}
+	\item 	\textsc{Reach}: how to acquire customers;
+	\item	\textsc{Retention}: how to keep customers;
+	\item	\textsc{Revenue}
+\end{enumerate}
+
+I will structure the analysis in the following two aspects:
+\begin{enumerate}
+  \item Summary available features that match the metrics, make some discussion.
+  \item Suggest some data collection methods and data analysis techniques.
+  %, including real time decision making, customer behavior study, new social patterns, etc.
+\end{enumerate}
+I will also make up some mockup data to demonstrate data that I wish to collect and some statistical method for data analysis. 
+
+\section{Features}
+A great game is a game that is innovative and always centers around players. \textsc{Some Product} is amazing and addictive. 
+As a computer gamer who has played many simulation/management games, I would like
+to discuss a bit about current features and make some personal suggestions. You can treat this part as a review 
+from a customer. The data analysis is in the next section which is the main body of 
+this essay.{\bf (Jump to: Section~\ref{sec:stat})}
+\begin{enumerate}
+	\item{\bf It is Fun to play \textsc{Some Product}} \cite{insomniac}\\
+	The gameplay is fun and addicting. The graphic is stunning and cute. The sound and BGM are quite 
+	interesting. Avatars, profiles, state machines, tech trees, collections, sliders and interface 
+	toys are designed quite well in the game.\cite{endofmoorlaw} This is actual core metric that 
+	reach and retain users in the game.
+	
+	\item {\bf Easy to lean, hard to master} \cite{insomniac, givenadvice}\\
+	The game is easy to get hands on, even for five-year-old kids. The intuitive tutorial after 
+	launching the game for the first time guides users through almost all the necessary steps to 
+	operate a zoo. However, within a tiny space, some micromanagement skills are requires. For 
+	example, how to fit more buildings into the zoo? Whether to spend zoo bucks for instant 
+	finish or not? Adequate advanced, more involved techniques is especially important for retaining advanced users from whom might 
+	the revenue come.
+	
+	Talking about players' skill levels, I am not sure about player demographics(I will discuss this in the next section).
+	For me, the game is a bit simple and I would like to see more advanced features.
+	 For example, one obnoxious problem is building path. So far, path is 
+	totally redundant in the game because "tourists" run around. Even if I insist on building a path 
+	regardless whether it is useful or not. I have to go to store -> decoration -> scroll pages until 
+	I can find the path. And I also need to dig through this hierarchy again if I need a corner or I 
+	accidentally hit cancel. I would suggest:
+	\begin{enumerate}
+	
+	\item Add some shortcut slots somewhere at the corner of the screen where players can drag whatsoever
+	they want to it;
+	
+	\item Add options in store interface, allowing players to sort animals based on price, alphabetics, popularity.
+	Also, add a fast way for customer to request animals they want. 
+	
+	\item Add bonus factors for building path. For example, animals built next to a path enjoy slightly
+	more frequent income rate. 
+	
+	\item While I was playing Roller Coaster Tycoon\footnote{\url{http://www.rollercoastertycoon.com/us/index.php}} several years ago. I found it was visually rewarding to see "tourists"
+	streaming on the street or waiting a long line at a particular roller coaster or "laughing". \textsc{Some Product} does have
+	these details like "tourists" sometimes stop and take photos. But it is still not enough and the "tourists" models are too identical.
+	
+	\item It is also 
+	enjoyable to see the number of "tourists" increasing steady after introducing some new stuff.
+	For \textsc{Some Product}, besides coin and XP, would it be better if we can add some jumping "zoo statistic" numbers including: current tourist numbers, 
+	today's income, etc.
+	
+	\item Is it possible to rotate the view angle? Make the buildings more "three dimentional?" Please refer to 
+	Paradise Island\footnote{\url{https://market.android.com/details?id=com.seventeenbullets.android.island}}.
+	\end{enumerate}
+	
+	\item{\bf Gameplay Depth} \cite{insomniac}\\
+	Currently, players can already do a lot in the game. There are free stuff, as well as fancy expensive stuff.
+	As a player had spent sizable amount of 
+	time in game, he/she must have accumulated large quantity of game currency. Adding new 
+	content, especially expensive animals,  advanced shops, at weekly basis will help suck 
+	up these money. If there is always new things to explore on a regular basis, there is 
+	more chance that users will check back from time to time, so called ``engagement'' or 
+	``retention''\cite{givenadvice}.
+	
+	
+	
+
+	\item{\bf Viral channel} \cite{datarevenue} \\
+	The customer base development pattern is viral increase. Several common strategies, such as cross promotion,
+	 i.e. rewarding zoo bucks for installing another game can expose users 
+	to more games, especially when there is a large user base at an existing game while a 
+	new game is just launched. Therefore, keep ``More Awesome Games'' at the noticeable location 
+	is definitely a good idea. Splash images after launching the game is another good idea, but keep these images at a 
+	reasonable number is important. However, discoverability issue, as stated in \cite{datarevenue}, i.e. how to get noticed
+	and grow customer base, remain a challenge, especially in this competitive market
+	
+	Also, it might be possible to explore other market other than iOS or Android.
+	For example, although windows phone 7 only has 1\% market share, there is not a single social game available and windows phone has its momentum. 
+	With the advent of "Mango" update due in fall 2011, windows phone will have in-app purchase function. It is definitely a promising market because 
+	(1)there are few competitors
+	and (2) people are crazy for alternative high standard games other than pricey Xbox Live games.
+	
+	\item{\bf Promotion, sale and income source}\\
+	When I was playing, I have seen several promotion methods, such as limited edition collection, 
+	popping up banner saying ``you've earned and EXCLUSIVE 50\% off zoo Bucks RIGHT NOW! 4.99 
+	for 125''. It was really attempting to make purchase because it is really affordable and 125 zoo bucks can 
+	do a lot. Constant promotions that target all strata of players, i.e. exclusive animals for advanced users, 
+	discount stuff for average users. As for income, Reference \cite{ngmocoshares} suggested 40\% income from in-app 
+	purchase, the rest from advertisement and other source. I will discuss promotion, revenue in the next section.
+	
+	\item{\bf Social feature}\\
+	There is tiny social with basic social functions, such as visit others' zoo, leave tips, add 
+	friends, share pictures on facebook. However, the social function is still not enough. In my opinion, nothing is 
+	more rewarding than posting a snapshot of the zoo and receive complement like "This is so amazing!" from friends. 
+	So far 	the only action that requires two parties is leaving tips. This function is good but limited.
+	The first thing: I looked every where, trying to find a shortcut 
+	to add someone who tipped me as friend but I ended up input his/her name by myself! Secondly, leaving 
+	tips or not does not influence the	game too much (Maybe only influence some zoo goals). I would 
+	suggest several options:
+	\begin{enumerate}
+		\item Reduce building cost for some unique animal and instead require players to tip
+		certain amount of friends with a message "help with raising animals!" Friends can simply click "help
+		out" at no extra cost;
+		
+		\item Reduce building time if friends help with building;
+		
+		\item I believe a carefully designed zoo is a piece of artwork. Should provide leaderboard or daily star that features 
+		some beautifully designed zoos. Or maybe zoo design contest with zoo bucks reward is another optional strategy to get more involvement.
+		These carefully decorated zoo will not only increase in-game time, but also perfect thing to show off to friends.
+		
+		\item Chat channel where users can share pictures, find and chat with friends, request for 
+		help, communicate with game moderators, etc.
+	\end{enumerate}
+	I only listed several items that might be directly beneficial. There are a lot more ideas
+	for social games design and operation. But for most of them formal
+	data collection and analysis are required for evaluating the ideas.
+
+	
+\end{enumerate}
+
+\section{Data acquisition, analysis and discussion}
+\label{sec:stat}	
+		\subsection{Survey}
+			The best way to evaluate user experience is through survey. 
+			It is straightforward and cost effective. Also, survey is the best way to assess 
+			factors that are subjective, unique to a cluster of players and cannot be obtained through 
+			indirect data research such as secondary market research.
+			
+			General survey methods include simple random sampling (SRS), stratified random sampling, 
+			ratio and regression estimation based on SRS, cluster sampling etc. Selection of methods 
+			should be based on real data.
+			
+			Take SRS as example, before actual sampling, random select several players 
+			(20$\sim$50, depends on the population) for a pilot study. Collect related information (parameters), 
+			such as gender, age, race, social status, education, martial status, etc. 
+			The purpose of the pilot study is to: (1) test the survey questions; 
+			(2) determine sample size. Besides, from database, pull out other information (response variables), 
+			such as total time spent in game, total money spent, log on times per day, etc. After these, formal survey can be 
+			carried out.
+			
+			
+\subsubsection{Sample survey questionnaire}
+	A formal survey questionnaire involves group effort and several test periods. 
+	There are several forms, such as web-based survey, email survey, online focus groups and traditional paper-based survey.
+	Here I make a simple survey to demonstrate the concept. 
+	{\fontfamily{phv}\selectfont 
+	
+	Welcome to this very important survey with which we researchers want to get to know what you really want and provide
+	better service. Thank you for filling it out!
+	
+	\begin{itemize}
+	\item Your gender:\Qitem{Male} \Qitem{Female}
+	\item Your age: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+	\item How do you feel today? \Qitem{I am feeling great!} \Qitem{not really, because \_\_\_\_\_\_\_\_\_\_\_\_}
+	\item Your income range? \Qitem{No income}\Qitem{<\$10,000} \Qitem{\$10,000-\$30,000} \Qitem{>\$30,000}\\
+		 \Qitem{prefer not to say}
+	\item What is(are) your favorite zoo animal?\\
+		\Qitem{Dog} \Qitem{Cat} \Qitem{Parrot} \Qitem{Pigeon} \Qitem{Unicorn} 
+		\Qitem{Aragog} \Qitem{Others(Name your favorite animals!It may appear in the next update!)\_\_\_\_\_\_\_\_\_\_\_\_}
+	\item How do you like the graphic? horrible \Qrate{} awesome!
+	\item Do you have a lot of friends playing the game? no \Qrate{} a lot
+	\item If there is one feature you want in the game, what is it?\_\_\_\_\_\_\_
+	
+	\end{itemize}
+	
+	}
+
+	
+\subsubsection{Customer demographics}
+	Based on collected data, we can get some insight about customers. For example, it is possible to 
+	calculate the proportion of players who give high rating, the proportion of each gender, etc.
+	Figure.\ref{Pie_ageGrp} demonstrates decomposing players into different age groups.
+	I use pie chart (or can use stacked bar chart) for explanatory data analysis (EDA).
+<<results = hide, echo = F>>=
+library(ggplot2)
+library(sqldf)
+maxFontSize = 10 
+FigWidth = 7.5 # cm 
+FigHeight = 5.5 # cm 
+inch = 2.54 # cm 
+# tweek the screen to get the right plot size in cm 
+windows(width=FigWidth/inch, height=FigHeight/inch, 
+		pointsize=maxFontSize) 
+
+age = read.table('Mock Data/age group.txt', header = T)
+sumFreq = sqldf("
+			select SUM(Freq) as 'SumFreq'
+			From age")	
+age = sqldf("select Freq, 
+  CASE WHEN AgeGrp == 0 THEN '1) 8-18'
+	   WHEN AgeGrp == 1 THEN '2) 19-25'
+	   WHEN AgeGrp == 2 THEN '3) 26-35'
+	   WHEN AgeGrp == 3 THEN '4) 36-45'
+	   WHEN AgeGrp == 4 THEN '5) 46-56'
+	   WHEN AgeGrp == 5 THEN '6) 60+'
+  END ageGrp from age join sumFreq")
+#Standardization
+age$Freq = age$Freq / sumFreq$SumFreq  
+p = ggplot(data =age, aes(x = factor(1), y = Freq, fill = ageGrp))
+p = p + geom_bar(width = 1) + opts(plot.background = theme_blank(),
+		plot.margin = unit(c(1, 0, 0, 0.5),	"lines")) 
+p = p + coord_polar(theta="y") 
+p = p + xlab('') +
+	ylab('') +
+	labs(fill='Age Group')  
+print.ggplot(p)
+ggsave("pie_chart_ageGrp.pdf",scale=1.5) 
+dev.off()
+@
+\begin{figure}[h!]
+
+\centering
+	\includegraphics[width = 0.5\textwidth]{pie_chart_ageGrp.pdf}
+ \caption{\small The relationship between Age Group and user demographics}
+ \label{Pie_ageGrp}
+\end{figure}
+
+From this mockup data, we can see the major user base is among age 8 to 35. Decision making should
+be based on this result:
+\begin{enumerate}
+\item \textsc{Retain} the current customer population by producing 
+more animals that are favored by 8 to 35 age group. For example, these young people may like more vivid animation, more involved breeding method, etc. These information can be obtained
+through secondary market research or from open questions or multiple-choice questions in the survey. We can send out questionnaire from time to time, 
+asking players:" Which animal do you desperately want in your zoo?".
+After acquiring all the information, we can produce new content mainly based on their preference. With plenty of attractive
+content designed especially for them, these players will have a feeling of importance and be more loyal to the game.
+
+\item \textsc{Reach} other customers. Find out why there are less elder players. Is it because there are fewer smart phone 
+users among these user group? This can be evaluated by some statistical methods (e.g. binomial test). 
+If this is not the case. We need to find out what these customer prefer. Is it the case that elder people 
+favor tame animals like dogs, rabbit? Those information can be extracted from carefully designed survey. 
+Then without disrupting the existing customer base, we can deploy new animals, develop new ads to attract these customers.
+
+\end{enumerate}
+
+Furthermore, if we want to study monetization from players. We survey
+	spent by players and their social status conditional on gender, we can draw stacked bar chart or pie char as shown in Figure.\ref{fig:Pie}:\\
+
+<<fig=F, echo = FALSE, results = hide>>=
+df = read.table('Mock Data/pie chart.txt', header = T)
+df = sqldf("select Summary,
+  CASE WHEN Gender==1 THEN 'Female'
+       WHEN Gender==2 THEN 'Male'
+  END gender,
+  CASE WHEN Freq ==5 THEN '1) Wealthy' 
+       WHEN Freq ==4 THEN '2) Less Wealthy' 
+       WHEN Freq ==3 THEN '3) Intermediate' 
+       WHEN Freq ==2 THEN '4) Somewhat poor' 
+       WHEN Freq ==1 THEN '5) Poorest' 
+  END response from df")
+
+maxFontSize = 10 
+FigWidth = 12.5 # cm 
+FigHeight = 5.5 # cm 
+inch = 2.54 # cm 
+windows(width=FigWidth/inch, height=FigWidth/inch, 
+		pointsize=maxFontSize) 
+
+# First plot the stack bar chart
+p = ggplot(data = df, aes(x= factor(1), y = Summary, fill = factor(response)))
+p = p + geom_bar(width =1) + opts(plot.background = theme_blank()) 
+p = p+facet_grid(facets=. ~ gender)
+p = p + xlab('') + ylab('') + labs(fill='Response') + opts(axis.text.x = theme_blank())
+
+pushViewport(viewport(layout = grid.layout(2, 1)))
+vp1 <- viewport(width = 1, height = 0.5, just = c("bottom"))
+pdf("pie_chart.pdf")
+print.ggplot(p ,vp = vp1)
+# Second plot the pie chart
+p = p  + coord_polar(theta="y") 
+vp2 <- viewport(width = 1, height = 0.5, just = c("top"))
+print.ggplot(p,vp = vp2)
+#ggsave("pie_chart.pdf",scale=1.5) 
+dev.off()
+@
+
+\begin{figure}[h!]
+\centering
+	\includegraphics{pie_chart.pdf}
+ \caption{\small The relationship between social status and percentage of spend in the game \cite{piechart} in two charting forms}
+\label{fig:Pie}
+\end{figure}
+From this mockup data, we know that higher percentage of wealthy male will spend more money in game than their 
+female counterpart. So before formal statistical analysis, we can get rough idea that we should focus more on retaining 
+this portion of players who can bring more profit.
+
+
+	\subsubsection{Estimate and predict customer behavior using linear model} 
+	Through survey, we acquire information that is suitable for fitting linear model, i.e. regression analysis and analysis or variance.
+	 Also, formal modeling is a crucial step before we can make any decisions based on data.
+	 
+	For example, after EDA in the previous section, we suspect some factors are influential and
+	 want to formally model total money spends by players. We consider including age, 
+	 rating of the game in the model. Then, we can fit a analysis of covariance model by crossing age 
+	 ($x_i$, continuous variable) and rating of game($y_j$, categorical variable from 1 to 5).
+	The model to start with:
+	\begin{equation*}
+z_{ij} = \mu + \beta_1 x_i + \beta_2 y_j + \beta_{12}(xy)_{ij} + \epsilon_{ij}, where \; \epsilon_i \sim N(0,\sigma^2)
+\; and \; i \in \{1...n\}, j \in \{1 ...5\}
+\end{equation*}
+where:
+\begin{itemize}
+\item $\mu$ is the average effect;
+\item $\beta_1$ is the effect of age;
+\item $\beta_2$ is the effect of rating;
+\item $\beta_{12}$ is the interaction effect between age and rating;
+\item $\epsilon_{ij}$ is the randome error;
+\end{itemize}
+
+<<results = hide, echo = F>>=
+windows(width=FigWidth/inch, height=FigHeight/inch, pointsize=maxFontSize) 
+age_status = read.table('Mock Data/age_status.txt', header = T)
+model = lm(Spend ~ Rating + Age , data = age_status)
+summary(model)
+p = ggplot(data = age_status, aes(x = Age, y = Spend))
+p = p + stat_smooth(method="lm") + geom_point()
+print.ggplot(p)
+ggsave("regress.pdf",scale=1.5) 
+dev.off()
+@
+\begin{figure}[h!]
+
+\centering
+	\includegraphics{regress.pdf}
+ \caption{\small The relationship between age and spend in the game, with 95\% confidence band}
+\label{fig:covariance}
+\end{figure}
+<<results = tex, echo = F>>=
+library(xtable)
+xtable(summary(model), caption = "The coefficient summary", 
+	label = 'coefsummary')
+@
+
+	By fitting the mockup data, it is clear that rating is not statistically significant (Table.\ref{coefsummary}) but age is significant (p-value = 0.0074 < 0.05) (interaction term was already removed since it is not significant).
+	 So we include age in the model and use age to predict the user spend in the game. 
+	
+	Our model based inference is: age is strongly correlated with how much money users spend in \textsc{Some Product}. Elder people tend to spend more than younger people (though it is a smaller user base), maybe because they are
+	wealthier. (Correlation analysis of age and social status may proof this). Having this in mind, we can predict future revenue with the knowledge of players' age. And we should work on increasing
+	this user base from which most revenue comes.
+	
+	This is just a simplified demonstration of a basic regression analysis and model selection since regression analysis is a big family. There are
+	various methods and 
+	which method to use should be based on
+	the appearance of real data and industrial tradition. For example, log linear model is widely used for multinomial data, say, when we are counting number of players in each age group.
+	Negative binomial model for modeling data with extra variance that cannot be accounted for
+	by standard poission generalized linear model (say, when we are modeling number of players in a day). 
+	In terms of model selection, systematic model selection approaches based on likelihood ratio test (LRT), AIC, principle components analysis (PCA) are to be used. 
+	
+	Also, we may need to use nonlinear regression to model more complicated data, such as viral growth pattern.
+And if we have multiple response variables, multivariate regression is desired method to account for extra correlation between responses(e.g. customer counts and revenue are to be modeled with respect to
+age, social status, etc, and we believe these two are closely related). 
+
+
+	 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%														Section 3.2												%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%						
+\subsection{Real-time data analysis}
+While survey can give game developers insight about historical performance and reference for the future,
+ the performance of the game should be closely monitored in real time. 
+\subsubsection{Data collection}
+Real time data analysis should be driven by the reach, retention, revenue metrics.\cite{givenadvice}
+Several key parameters, such as Daily Average Users(DAU), daily revenue, daily time spend, etc 
+ are data to be modeled. To be more specific, we are interested in the following data:
+\begin{enumerate}
+	\item User traffic
+	\item User churn rates over time
+	(conditional on whether the players are organic players or attracted by cross platform advertisement); 
+	\item Levels and capitals of the users;
+	\item Number of animals in the zoo;
+	\item Number of animals in the inventory;
+	\item Number of player purchases a certain animal (conditional on using zoo bucks or coins);
+	\item Whether a player is online today or not;
+	\item Number of players use zoo bucks for "instant finish", recover sick animals;
+	\item Average number of times players launch the game; 
+	\item Average time players spend in game; 
+	\item Number of players use in-app purchase and revenue (ARPPU);
+	\item Average revenue per user (ARPU);
+	\item Effective cost per thousand impressions (eCPM);
+	\item Number of zoo goals each user achieved;
+	\item Amount of time it takes players to finish a zoo goal;
+	\item Number of friends;
+	\item Number of invitations sent;
+	\item Number of friends each user bring into game;
+	\item Number of tips received and given;
+	\item Number of visitors; 
+	\item Number of pictures shared on facebook;
+	
+\end{enumerate}
+\subsubsection{Purpose of collecting data}
+The purpose of collecting these data is to track the performance in real-time, guide decision making and find a 
+balance between \textsc{Reach, Retention }and \textsc{Revenue}. The following examples show how they work:
+\begin{enumerate}
+\item High price of in-app virtual items will discourage
+players from sharing the game to friends and this can be reflected from "number of invitations sent" and 
+"number of friends each user bring into game".
+However, too many free items without daily quota for sharing to a same person will discourage 
+friends for trying the game because of "feeling of spammy"\cite{ngmocoshares};
+
+\item Promotions can certainly encourage
+in-app purchase. Moreover, by carefully designing the depth of discount, it is possible to maximize revenue. However, too frequent
+promotions will discourage regular purchases, because players always wait for promotions. We need to closely track
+ "number of players use in-app purchase and the revenue" to design promotions.
+
+\item Monitor "whether a player is online today or not". If there is certain amount of players dropped, something must be wrong and needs to be fixed. So that we
+can retain the existing customers;
+
+\item "Number of zoo goals each user achieved; Amount of time it takes players to finish a zoo goal" help screening out unfavored zoo goals and give insight about 
+the difficulty.
+
+\item eCPM is a crucial factor for that summarize the revenue from splash advertisement, promotions, etc. eCPM, along with user traffic, user churn rate will give
+a whole picture of the performance of the game.
+
+\item Top 3\%$\sim$10\% ARPPU indicates which customers should we put more emphasize on.
+\end{enumerate}
+
+\subsubsection{Data modeling}
+For each group of data, there are various modleing methods. Besides the linear models mentioned above, there are other
+well-established procedures. Such as factor analysis, hyphothesis test (e.g. Mann-Witney U, Wilcoxson Sign Rank),
+ contigency table (e.g. Mantel-Haenszel Test), longitudinal study (e.g. Cohort Analysis), event history analysis\cite{eventhistory},
+ time series, Bayesian inference, etc
+
+As a demonstration, I am going to model data with a time series model and briefly discuss Bayesian inference for
+real time data analysis.
+%<<>>=
+%	library(quantmod)
+%	getSymbols("C")
+%	chartSeries(C, subset='last 3 months')
+%	addBBands()
+%@
+<<echo = F, results = hide>>=
+stockdata = read.csv('http://chart.yahoo.com/table.csv?s=C&a=0&b=01&c=2009&d=6&e=10&f=2011&g=d&q=q&y=0&z=C&x=.csv')
+#standardize data
+stockdata$std.Volume = stockdata$Volume/max(stockdata$Volume)
+stockdata$std.Adj.Close = stockdata$Adj.Close/max(stockdata$Adj.Close)
+# modify device windows size
+windows(width=FigWidth/inch, height=FigHeight/inch, pointsize=maxFontSize) 
+p = ggplot(data = stockdata)
+p = p + geom_line(aes(x = seq(1:length(std.Adj.Close)), y = std.Volume, 
+				colour = 'User Count'))
+p = p + geom_line(aes(x = seq(1:length(std.Adj.Close)), y = std.Adj.Close, 
+						colour = 'Revenue')) 
+p = p + xlab('Time') + ylab('Standarized user count and revenue') +
+	labs(colour='') 
+print.ggplot(p)
+ggsave("real_time.pdf",scale=1.5) 
+dev.off()
+@
+
+
+\begin{figure}[h!]
+\centering
+	\includegraphics{real_time.pdf}
+ \caption{\small Real-time data visualization}
+\label{fig:realtime}
+\end{figure}
+
+The mockup time series data in Figure.\ref{fig:realtime} is from Yahoo! Finance whose URL can be found in the appendix.
+Here I model the "User Count" data and make prediction about number of users in the future.
+
+There is some hint of seasonality (Time: 300, 490, 600) but not very obvious. Otherwise, 
+there is no obvious trend judging from the appearance of the plot.
+To decide which time series model to use, the autocorrelation function plot (ACF) and Partial-ACF (PACF) are shown 
+in Figure.\ref{fig:acf}. From the top two plots, there is evidence of underlying autoregressive (AR) and hint of moving average (MA) processes.
+ After trying ARMA(1,1), we found the residual ACF and PACF are quite stationary (Figure \ref{fig:acf}, 
+bottom two sub-figures). Therefore, the model is pretty good.
+
+
+<<results = hide, echo = F>>=
+
+pdf('timeseries.pdf', width=FigWidth*1.5/inch, height=FigWidth*1.5/inch)
+par(mfrow = c(2,2))
+# Sample ACF and PACF
+acf(stockdata$std.Volume, main="", ylim=c(-0.2,1), ylab="sample ACF")
+pacf(stockdata$std.Volume, main="", ylim=c(-0.2,1), ylab="sample PACF")
+model = arima(stockdata$std.Volume,order = c(1,0,1),seasonal = 
+				list(order = c(0, 0, 0), period = 100))
+model
+model.resid = resid(model)
+# Residual ACF and PACF
+acf(model.resid,main="", ylim=c(-0.2,1), ylab="residual ACF")
+pacf(model.resid,main="", ylim=c(-0.2,1), ylab="residual PACF")
+dev.off()
+
+@
+
+\begin{figure}[h!]
+\centering
+	\includegraphics{timeseries.pdf}
+ \caption{\small Model building and diagnose}
+\label{fig:acf}
+\end{figure}
+
+Based on the model, we can make predictions. For demonstration, I predict future 100 days and plot in 
+Figure.\ref{fig:pred}. The predicted value is around 0.138. If we transfer this back to count, then we expect the
+average number of players in the following 100 days to be around 52,062,404. If we have a financial goal in mind,
+based on the average percentage of players who make in-app purchase. We can decide if promotion should be
+carried out and to what extent should the discount be.
+
+<<results = hide, echo = F>>=
+windows(width=FigWidth/inch, height=FigHeight/inch, pointsize=maxFontSize) 
+predict.stockdata = data.frame(count = stockdata$std.Volume, 
+		indicator = factor("Original"))
+spred = predict(model,100)
+predict.stockdata = rbind(predict.stockdata, data.frame(count = spred$pred, 
+				indicator = factor("Prediction")))
+p = ggplot(data = predict.stockdata, aes(x = seq(1:length(count)), y = count, 
+				colour = indicator))
+p = p + geom_line() + xlab("Time") + ylab("Standardized user count") +
+	labs(colour = '')
+print.ggplot(p)
+ggsave("prediction.pdf",scale=1.5) 
+dev.off()
+@
+\begin{figure}[h!]
+\centering
+	\includegraphics{prediction.pdf}
+ \caption{\small Time series based model based prediction}
+\label{fig:pred}
+\end{figure}
+
+Another approach for handling real-time data is using Bayesian approach. Bayesian models consider parameters to be 
+random variables and allow prior information in the model. One advantage of Bayesian model is that we can use all 
+the information available in the market for 
+modeling building. For instance, we can borrow data from other similar games from competitors as prior information.
+Another advantage is that with a Bayesian model implemented, we are able to
+keep updating the model by feeding new data in the model while treating previous data as prior. Also Bayesian model
+is good for handling missing data.
+
+For example, we design a study to track relationship between number of players ($r_{ij}$) who make purchases and 
+the county they live ($\alpha_j$), 
+the time they spend in the game ($t_{ij}$). We can build the model:
+\begin{align*}
+r_{ij} \sim Binomial(p_{ij}, n_{ij}) \\
+logit(p_{ij}) = \beta_0 + \beta_1t_{ij} + \alpha_j \\
+\alpha_j \sim N(\mu_{\alpha},\tau_{\alpha}^2) \; and \; \mu_{\alpha} = \beta_{2j}
+\end{align*}
+by setting:
+\begin{align*}
+\beta_0 \sim N(\mathop{\beta_0}_{n-1},\mathop{\sigma_0^2}_{n-1}), \beta_1 \sim N(\mathop{\beta_1}_{n-1},\mathop{\sigma_1^2}_{n-1})\\
+\beta_2 \sim N(\mathop{\beta_2}_{n-1},\mathop{\sigma_2^2}_{n-1}) \; and \; \tau_{\alpha}^2 \sim Inv.Gamma(\mathop{\alpha}_{n-1},\mathop{\beta}_{n-1})
+\end{align*}
+where $\mathop{ }_{n-1}$ represents previous prior information. 
+\begin{itemize}
+	\item $n_{ij}$: the number of $i^{th}$ group players in the $j^{th}$ county
+\item $\alpha_j$: the deviation from the based mean by different county
+\item $\beta_0$: the overall base mean
+\item $\beta_1$: the effect of time players spend in \textsc{Some Product}
+\item $\beta_2$: the effect of the county
+\item $\tau^2_{\alpha}$: the variation in the county effect
+\end{itemize}
+
+By fitting a Bayesian model, we are able to get estimation of all the parameters. Each day, we can update the model with new palyers group.
+These results can be evaluated continuously. We will have the chance to modify our strategy accordingly.
+For example, we should extend promotion if we predict more players are buying zoo bucks, expand accrual for advertisement, 
+imbalancing randomization to favor better
+performing campaign or animals, focusing on players in those counties that make more purchase, etc. \cite{bayeclinal}
+
+\section{Summary}
+In this short essay, I listed some game features and made several personal suggestions. My overall impression is that
+the game has very vivid presentation, adequate game depth and catches consumers' desire. Nevertheless, 
+some features, such as the social feature, is still
+not satisfying enough to stand out from competitors. 
+
+As for quantitative data analysis, I suggested several potential data collection and processing
+methods that may be useful to evaluate the market, customer behavior and financial status. More inference, exact type of
+plot, statistical methods can be applied based on practical data.
+
+\newpage
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{plain}
+\bibliography{\textsc{Some Company}}
+
+\newpage
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+Below is the source R code:
+<<results = hide, echo = F>>=
+Stangle('Q2.rnw')
+@
+\begin{small}
+<<echo = F>>=
+x = readLines('Q2.R')
+cat(x, sep = "\n")
+@
+\end{small}
+
+
+
+\end{document}
+
+
